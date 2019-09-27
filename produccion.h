@@ -10,8 +10,8 @@ class Cproduccion{
     vector<string> production;
     bool terminal;
     bool compare();
-    Cproduccion();
-    void cut_per_equal();//cortamos en el :=
-    void cut_per_or();//cortamos en el |
-    void no_spaces();// quitamos espacios 
+    Cproduccion(string);
+    vector<string> cut_per_equal();//cortamos en el :=
+    vector<string> cut_per_or();//cortamos en el |
+    string no_spaces(string);// quitamos espacios 
 };
