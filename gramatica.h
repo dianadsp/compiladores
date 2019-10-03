@@ -12,7 +12,7 @@ using namespace std;
 class Gramatica{
 public:
     string estadoInicial;
-    vector<Cproduccion> production;
+    vector<Produccion> production;
     set<string> terminales;
     set<string> noterminales;
     vector< vector<string> > getProduccion(string izq);

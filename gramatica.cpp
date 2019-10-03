@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 #include "gramatica.h"
-#include "produccion.h"
+//#include "produccion.h"
 
 using namespace std;
 
@@ -46,6 +46,6 @@ void Gramatica::read(string text){
                 var.push_back(tmp);
             }
         }
-        production.push_back(Cproduccion(izq, var));
+        production.push_back(Produccion(izq, var));
     }
     }

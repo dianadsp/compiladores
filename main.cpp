@@ -3,8 +3,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <iostream>
-#include "produccion.h"
-#include "gramatica.h"
+#include "Analizador.h"
 
 using namespace std;
 

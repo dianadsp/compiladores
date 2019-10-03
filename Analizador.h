@@ -6,7 +6,7 @@
 #include <iterator> 
 #include <map> 
 #include "gramatica.h"
-#include "produccion.h"
+//#include "produccion.h"
 
 using namespace std;
 class AnalizadorSintacticoLL1{
