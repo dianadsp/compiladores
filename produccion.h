@@ -6,12 +6,14 @@
 
 using namespace std;
 class Cproduccion{
+    public:
+    string izq;
+    vector<string> der;
     string izquierda;
     vector<string> production;
     bool terminal;
     bool compare();
     Cproduccion(string);
-    vector<string> cut_per_equal();//cortamos en el :=
-    vector<string> cut_per_or();//cortamos en el |
+    Cproduccion(string _izq, vector<string> _der):izq(_izq), der(_der){};
     string no_spaces(string);// quitamos espacios 
 };
