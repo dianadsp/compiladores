@@ -37,5 +37,27 @@ void AnalizadorSintacticoLL1::llenarTas(){
 }
 
 bool AnalizadorSintacticoLL1::reconocerSentencia(string sentencia){
-
+    Gramatica gram;
+    queue<string> entrada;
+    entrada.push(cadena);
+    stack<string> pila;
+    pila.push(DOLAR);
+    pila.push(gram.estadoInicial);
+    entrada.push(DOLAR);
+    while(!entrada.empty() && !pila.empty()){
+        if(entrada.front()==pila.top()){            
+            entrada.pop();
+            pila.pop();
+        }
+        else{
+            string tmp=pila.top();
+            pila.pop();
+            for (auto x : tas[tmp][entrada.front()]){  
+                if (x!="lambda"){
+                    pila.push(x);
+                }                
+            }         
+        }
+    }
+    return entrada.empty() && pila.empty();
 }
