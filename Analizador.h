@@ -13,7 +13,7 @@ class AnalizadorSintacticoLL1{
 private:
   Gramatica gr;
   map<string, map<string, vector<string>>> tas;
-  void adicionar(string noTerminal, string terminal, string* prod);
+  void adicionar(string noTerminal, string terminal, vector<string> prod);
   const string DOLAR = "$";
 public:
   void llenarTas();
