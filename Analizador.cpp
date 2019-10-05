@@ -38,7 +38,7 @@ void AnalizadorSintacticoLL1::llenarTas(){
 
 }
 
-bool AnalizadorSintacticoLL1::reconocerSentencia(string sentencia){
+bool AnalizadorSintacticoLL1::reconocerSentencia(string cadena){
     Gramatica gram;
     queue<string> entrada;
     entrada.push(cadena);
