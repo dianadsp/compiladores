@@ -5,6 +5,8 @@
 #include <sstream>
 #include <iterator> 
 #include <map> 
+#include <stack>
+#include <queue>
 #include "Analizador.h"
 
 using namespace std;
