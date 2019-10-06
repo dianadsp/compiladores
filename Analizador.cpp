@@ -41,25 +41,39 @@ void AnalizadorSintacticoLL1::llenarTas(){
 bool AnalizadorSintacticoLL1::reconocerSentencia(string cadena){
     Gramatica gram;
     queue<string> entrada;
-    entrada.push(cadena);
     stack<string> pila;
     pila.push(DOLAR);
     pila.push(gram.estadoInicial);
     entrada.push(DOLAR);
+
+/////////dividir la cadena en palabras e ingresarla a la pila
+    std::istringstream isstream(cadena);
+    while(!isstream.eof()){
+        std::string tempStr;
+        isstream >> tempStr;
+        //  cout<<"parte de la cadena: "<<tempStr<<endl;
+        entrada.push(tempStr);
+    }
+    
+
     while(!entrada.empty() && !pila.empty()){
-        if(entrada.front()==pila.top()){            
+        if(entrada.front()==pila.top()){ 
+            cout<<"son iguales saco ambos: "<<pila.top();           
             entrada.pop();
             pila.pop();
         }
         else{
             string tmp=pila.top();
+            cout<<"no son iguales, saco esto de la pila: "<<tmp<<" --";           
             pila.pop();
             for (auto x : tas[tmp][entrada.front()]){  
                 if (x!="lambda"){
+                    cout<<"guardo esto"<<x;
                     pila.push(x);
                 }                
             }         
         }
+        cout<<endl;
     }
     return entrada.empty() && pila.empty();
 }
