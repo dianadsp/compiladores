@@ -3,16 +3,36 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <map> 
 
 using namespace std;
+
+class ProdContexto{
+public:
+    string nombre;
+    map<string,string> contexto;
+    ProdContexto(string& _nombre,map<string,string>& _contexto):nombre(_nombre),contexto(_contexto){}
+};
+
 class Produccion{
 public:
-    string izq;
+    ProdContexto izq;
     vector<string> der;
-    string izquierda;
-    vector<string> production;
     bool terminal;
     bool compare();
-    Produccion(string _izq, vector<string> _der):izq(_izq), der(_der){};
+    Produccion(ProdContexto _izq, vector<string> _der): izq(_izq), der(_der){}
     string no_spaces(string);// quitamos espacios 
+    
+};
+
+
+
+class ProduccionRegla{
+    ProdContexto izq;
+    vector<ProdContexto > der;
+};
+
+class ProduccionLexico{
+    ProdContexto izquierdo;
+    vector<string > izq;
 };

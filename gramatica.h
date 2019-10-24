@@ -15,7 +15,8 @@ public:
     vector<Produccion> production;
     set<string> terminales;
     set<string> noterminales;
+    Gramatica(){};
     vector< vector<string> > getProduccion(string izq);
     void read(string text);
-    
+    ProdContexto getContexto(string);
 };

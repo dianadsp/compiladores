@@ -39,7 +39,7 @@ void AnalizadorSintacticoLL1::llenarTas(){
 }
 
 bool AnalizadorSintacticoLL1::reconocerSentencia(string cadena){
-    Gramatica gram;
+    /*Gramatica gram;
     queue<string> entrada;
     stack<string> pila;
     pila.push(DOLAR);
@@ -75,5 +75,32 @@ bool AnalizadorSintacticoLL1::reconocerSentencia(string cadena){
         }
         cout<<endl;
     }
-    return entrada.empty() && pila.empty();
+    return entrada.empty() && pila.empty();*/
+    queue<string> entrada;
+    stringstream palabras(cadena);
+    string t;
+    while (getline(palabras,t,' ')){
+        entrada.push(t);
+    }    
+    stack<string> pila;
+    pila.push(DOLAR);
+    pila.push(gr.estadoInicial);
+    entrada.push(DOLAR);
+    while (!entrada.empty() && !pila.empty()){
+        if (entrada.front()==pila.top()){
+            entrada.pop();
+            pila.pop();
+        }
+        else{
+            string temp=pila.top();
+            pila.pop();
+            for (int i = tas[temp][entrada.front()].size()-1; i>=0; i--){
+                if (tas[temp][entrada.front()][i]!="lambda"){
+                    pila.push(tas[temp][entrada.front()][i]);
+                }
+            }
+            
+        }
+    }
+    return (entrada.empty() && pila.empty());
 }

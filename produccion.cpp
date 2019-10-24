@@ -18,6 +18,3 @@ string Produccion::no_spaces(string input){
     }
     return output;
 }
-
-
-
